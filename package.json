@@ -1,0 +1,46 @@
+{
+  "name": "teh-hot-code-push-plugin",
+  "version": "1.1.7",
+  "description": "Cordova plugin adopt to webview 2.0",
+  "cordova": {
+    "id": "teh-hot-code-push-plugin",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:amosbaby/cordova-hot-code-push.git"
+  },
+  "keywords": [
+    "cordova",
+    "nordnet",
+    "mobile",
+    "code",
+    "update",
+    "push",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova-android",
+      "version": ">=4"
+    },
+    {
+      "name": "cordova-plugman",
+      "version": ">=4.2.0"
+    }
+  ],
+  "dependencies": {
+    "xml2js": "^0.4"
+  },
+  "author": "Amos Lee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amosbaby/cordova-hot-code-push"
+  },
+  "homepage": "https://github.com/amosbaby/cordova-hot-code-push"
+}
