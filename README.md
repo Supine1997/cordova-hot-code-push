@@ -5,3 +5,10 @@
 > 2020/09/02
 
 > 兼容Capacitor
+
+> install
+```shell script
+npm install git+http://192.168.3.168:12000/tool/cordova-hot-code-push.git
+npm install @ionic-native/hot-code-push
+ionic cap sync
+```
