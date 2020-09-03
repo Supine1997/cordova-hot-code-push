@@ -652,9 +652,11 @@ public class HotCodePushPlugin extends CordovaPlugin {
             // 尝试重置本地服务器根目录为当前热更新后的外置存储路径
             Class[] cArg = new Class[1];
             cArg[0] = String.class;
-            webView.loadUrl(external);
 //            webView.getEngine().getClass().getDeclaredMethod("setServerBasePath", cArg).invoke(webView.getEngine(),
 //                    basePath);
+            Context context = webView.getView().getContext();
+            Object obj = context.getClass().getSuperclass().getDeclaredMethod("getBridge").invoke(context);
+            obj.getClass().getDeclaredMethod("setServerBasePath", cArg).invoke(obj, basePath);
         }  catch (SecurityException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
