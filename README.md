@@ -12,3 +12,10 @@ npm install git+http://192.168.3.168:12000/tool/cordova-hot-code-push.git
 npm install @ionic-native/hot-code-push
 ionic cap sync
 ```
+
+`android/app/src/main/res/xml/config.xml`
+```xml
+  <chcp>
+    <config-file url="http://petid.qqqid.com/apk/chcp.json"/>
+  </chcp>
+```
