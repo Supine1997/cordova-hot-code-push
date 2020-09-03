@@ -24,7 +24,7 @@ public class PluginFilesStructure {
 
     private static final String PLUGIN_FOLDER = "teh-hot-code-push-plugin";
 
-    private static final String MAIN_CONTENT_FOLDER = "www";
+    private static final String MAIN_CONTENT_FOLDER = "public";
     private static final String DOWNLOAD_FOLDER = "update";
 
     private String contentFolder;

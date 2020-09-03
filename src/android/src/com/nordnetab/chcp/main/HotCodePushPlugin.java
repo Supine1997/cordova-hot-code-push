@@ -66,8 +66,8 @@ import java.util.Map;
 public class HotCodePushPlugin extends CordovaPlugin {
 
     private static final String FILE_PREFIX = "file://";
-    private static final String WWW_FOLDER = "www";
-    private static final String LOCAL_ASSETS_FOLDER = "file:///android_asset/www";
+    private static final String WWW_FOLDER = "public";
+    private static final String LOCAL_ASSETS_FOLDER = "file:///android_asset/public";
 
     private String startingPage;
     private IObjectFileStorage<ApplicationConfig> appConfigStorage;
@@ -641,7 +641,7 @@ public class HotCodePushPlugin extends CordovaPlugin {
         }
 
         // make sure, that index page exists
-        String external = Paths.get(fileStructure.getWwwFolder(), strippedIndexPage);
+        String external = Paths.get(fileStructure.getWwwFolder());
         if (!new File(external).exists()) {
             Log.d("CHCP", "External starting page not found. Aborting page change.");
             return;
@@ -652,18 +652,10 @@ public class HotCodePushPlugin extends CordovaPlugin {
             // 尝试重置本地服务器根目录为当前热更新后的外置存储路径
             Class[] cArg = new Class[1];
             cArg[0] = String.class;
-            webView.getEngine().getClass().getDeclaredMethod("setServerBasePath", cArg).invoke(webView.getEngine(),
-                    basePath);
-        } catch (NoSuchMethodException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (SecurityException e) {
+            webView.loadUrl(external);
+//            webView.getEngine().getClass().getDeclaredMethod("setServerBasePath", cArg).invoke(webView.getEngine(),
+//                    basePath);
+        }  catch (SecurityException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (Exception e) {

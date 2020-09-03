@@ -74,7 +74,7 @@ public class ApplicationConfig {
     public static ApplicationConfig configFromAssets(final Context context, final String configFileName) {
         final AssetManager assetManager = context.getResources().getAssets();
         final StringBuilder returnString = new StringBuilder();
-        final String configFilePath = "www/" + configFileName;
+        final String configFilePath = "public/" + configFileName;
         BufferedReader reader = null;
         try {
             InputStreamReader isr = new InputStreamReader(assetManager.open(configFilePath));

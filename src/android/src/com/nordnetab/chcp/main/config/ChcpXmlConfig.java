@@ -19,9 +19,9 @@ public class ChcpXmlConfig {
     private int nativeInterfaceVersion;
 
     private ChcpXmlConfig() {
-        configUrl = "";
-        allowUpdatesAutoDownload = true;
-        allowUpdatesAutoInstall = true;
+        configUrl = "http://192.168.3.107/cordova_HCP/dofu-app/chcp.json";
+        allowUpdatesAutoDownload = false;
+        allowUpdatesAutoInstall = false;
         nativeInterfaceVersion = 1;
     }
 
