@@ -13,12 +13,12 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _allowUpdatesAutoDownload = YES;
-        _allowUpdatesAutoInstallation = YES;
+        _allowUpdatesAutoDownload = NO;
+        _allowUpdatesAutoInstallation = NO;
         _configUrl = nil;
         _nativeInterfaceVersion = 1;
     }
-    
+
     return self;
 }
 
@@ -26,11 +26,11 @@
     if (jsOptions[kHCPConfigFileXmlTag]) {
         self.configUrl = [NSURL URLWithString:jsOptions[kHCPConfigFileXmlTag]];
     }
-    
+
     if (jsOptions[kHCPAutoInstallXmlTag]) {
         self.allowUpdatesAutoInstallation = [(NSNumber *)jsOptions[kHCPAutoInstallXmlTag] boolValue];
     }
-    
+
     if (jsOptions[kHCPAutoDownloadXmlTag]) {
         self.allowUpdatesAutoDownload = [(NSNumber *)jsOptions[kHCPAutoDownloadXmlTag] boolValue];
     }

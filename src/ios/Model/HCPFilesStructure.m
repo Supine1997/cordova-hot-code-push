@@ -11,7 +11,7 @@
 
 static NSString *const CHCP_FOLDER = @"teh-hot-code-push-plugin";
 static NSString *const DOWNLOAD_FOLDER = @"update";
-static NSString *const WWWW_FOLDER = @"www";
+static NSString *const WWWW_FOLDER = @"public";
 static NSString *const CHCP_JSON_FILE_PATH = @"chcp.json";
 static NSString *const CHCP_MANIFEST_FILE_PATH = @"chcp.manifest";
 
@@ -32,7 +32,7 @@ static NSString *const CHCP_MANIFEST_FILE_PATH = @"chcp.manifest";
     if (self) {
         [self localInitWithReleaseVersion:releaseVersion];
     }
-    
+
     return self;
 }
 
@@ -50,7 +50,7 @@ static NSString *const CHCP_MANIFEST_FILE_PATH = @"chcp.manifest";
     if (![fileManager fileExistsAtPath:_pluginRootFolder.path]) {
         [fileManager createDirectoryAtURL:_pluginRootFolder withIntermediateDirectories:YES attributes:nil error:nil];
     }
-    
+
     // we need to exclude plugin's root folder from the iCloud backup, or it can become too big and Apple will reject the app.
     // https://developer.apple.com/library/ios/qa/qa1719/_index.html
     NSError *error = nil;
@@ -58,7 +58,7 @@ static NSString *const CHCP_MANIFEST_FILE_PATH = @"chcp.manifest";
     if (!success) {
         NSLog(@"Error excluding %@ from backup %@", [_pluginRootFolder lastPathComponent], error);
     }
-    
+
     return _pluginRootFolder;
 }
 
@@ -71,7 +71,7 @@ static NSString *const CHCP_MANIFEST_FILE_PATH = @"chcp.manifest";
     if (_downloadFolder == nil) {
         _downloadFolder = [self.contentFolder URLByAppendingPathComponent:DOWNLOAD_FOLDER isDirectory:YES];
     }
-    
+
     return _downloadFolder;
 }
 
@@ -79,7 +79,7 @@ static NSString *const CHCP_MANIFEST_FILE_PATH = @"chcp.manifest";
     if (_wwwFolder == nil) {
         _wwwFolder = [self.contentFolder URLByAppendingPathComponent:WWWW_FOLDER isDirectory:YES];
     }
-    
+
     return _wwwFolder;
 }
 

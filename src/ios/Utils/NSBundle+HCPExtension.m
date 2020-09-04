@@ -8,7 +8,7 @@
 #import "NSError+HCPExtension.h"
 #import "HCPEvents.h"
 
-static NSString *const WWW_FOLDER_IN_BUNDLE = @"www";
+static NSString *const WWW_FOLDER_IN_BUNDLE = @"public";
 
 @implementation NSBundle (HCPExtension)
 
@@ -16,13 +16,13 @@ static NSString *const WWW_FOLDER_IN_BUNDLE = @"www";
 
 + (NSString *)applicationBuildVersion {
     NSBundle *mainBundle = [NSBundle mainBundle];
-    
+
     return [mainBundle objectForInfoDictionaryKey:@"CFBundleVersion"];
 }
 
 + (NSString *)applicationVersionName {
     NSBundle *mainBundle = [NSBundle mainBundle];
-    
+
     return [mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
 }
 
