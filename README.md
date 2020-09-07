@@ -20,9 +20,30 @@ npm install -g cordova-hot-code-push-cli
 cordova-hcp build
 ```
 
-`android/app/src/main/res/xml/config.xml`
+> config
+
+`android/app/src/main/res/xml/config.xml` || `ios/App/App/config.xml`
+
 ```xml
   <chcp>
     <config-file url="http://petid.qqqid.com/apk/chcp.json"/>
+    <auto-download enabled="false"/>
+    <auto-install enabled="false"/>
   </chcp>
+```
+
+> ios
+
+`Project navigator> Pods > Development Pods > Capacitor > CAPBridgeViewController.swift` 追加方法
+```
+  override public func setValue(_ value: Any?, forKey key: String) {
+      if(key.contains("teh-hot-code-push-plugin")) {  // 如果是热更新赋值
+        setServerPath(path: key);
+        if (bridge != nil) {
+            loadWebView();
+        }
+      } else {
+        super.setValue(value, forKey: key);
+      }
+  }
 ```
