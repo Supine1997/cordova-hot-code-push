@@ -24,6 +24,17 @@ cordova-hcp build
 
 `android/app/src/main/res/xml/config.xml` || `ios/App/App/config.xml`
 
+> 项目根目录添加 `cordova-hcp.json`
+```json
+{
+  "name": "dofu-app",
+  "ios_identifier": "com.globletech.petid",
+  "android_identifier": "com.globletech.petid",
+  "update": "resume",
+  "content_url": "http://petid.qqqid.com/apk"
+}
+```
+
 ```xml
   <chcp>
     <config-file url="http://petid.qqqid.com/apk/chcp.json"/>
