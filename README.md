@@ -20,10 +20,6 @@ npm install -g cordova-hot-code-push-cli
 cordova-hcp build
 ```
 
-> config
-
-`android/app/src/main/res/xml/config.xml` || `ios/App/App/config.xml`
-
 > 项目根目录添加 `cordova-hcp.json`
 ```json
 {
@@ -35,6 +31,8 @@ cordova-hcp build
 }
 ```
 
+> config
+`android/app/src/main/res/xml/config.xml` && `ios/App/App/config.xml`
 ```xml
   <chcp>
     <config-file url="http://petid.qqqid.com/apk/chcp.json"/>
