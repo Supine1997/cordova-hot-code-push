@@ -18,15 +18,16 @@
     if (error) {
         return nil;
     }
-    
+
     NSString *appBundleID = [[NSBundle mainBundle] bundleIdentifier];
-    
+
     return [appSupportDir URLByAppendingPathComponent:appBundleID isDirectory:YES];
 }
 
 - (NSURL *)applicationCacheDirectory {
+
     NSError *error = nil;
-    NSURL *appCacheDirectory = [self URLForDirectory:NSCachesDirectory
+    NSURL *appCacheDirectory = [self URLForDirectory:NSDocumentDirectory
                                                    inDomain:NSUserDomainMask
                                           appropriateForURL:nil
                                                      create:YES
@@ -36,7 +37,7 @@
     }
 
     NSString *appBundleID = [[NSBundle mainBundle] bundleIdentifier];
-    
+
     return [appCacheDirectory URLByAppendingPathComponent:appBundleID isDirectory:YES];
 }
 

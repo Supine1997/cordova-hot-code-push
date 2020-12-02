@@ -111,6 +111,9 @@ static NSString *const DEFAULT_STARTING_PAGE = @"index.html";
         _pluginInternalPrefs.currentReleaseVersionName = config.contentConfig.releaseVersion;
 
         [_pluginInternalPrefs saveToUserDefaults];
+        // 此处需要更新，否则拷贝资源文件到热更新目录时会错误的拷贝到上一次的目录中
+         _filesStructure = [[HCPFilesStructure alloc] initWithReleaseVersion:_pluginInternalPrefs.currentReleaseVersionName];
+
     }
 
     [HCPAssetsFolderHelper installWwwFolderToExternalStorageFolder:_filesStructure.wwwFolder];
